@@ -6,10 +6,15 @@ use Alura\Leilao\Dao\Leilao as LeilaoDao;
 use Alura\Leilao\Model\Leilao;
 use Alura\Leilao\Service\Encerrador;
 use DateTimeImmutable;
+// use PDO;
 use PHPUnit\Framework\TestCase;
 
 class Encerradortest extends TestCase
 {
+  public function setUp(): void
+  {
+    
+  }
   public function testLeiloesComMaisDeUmaSemanaDevemSerEncerrados()
   {
     $fiat147 = new Leilao(
@@ -23,6 +28,9 @@ class Encerradortest extends TestCase
     );
 
     $leilaoDao = $this->createMock(LeilaoDao::class);
+    // $leilaoDao = $this->getMockBuilder(LeilaoDao::class)
+    //   ->setConstructorArgs([new PDO('sqlite::memory')])
+    //   ->getMock();
     $leilaoDao->method('recuperarNaoFinalizados')->willReturn([$fiat147, $variant]);
     $leilaoDao->expects($this->exactly(2))->method('atualiza');
     // $leilaoDao->method('recuperarFinalizados')->willReturn([$fiat147, $variant]);
@@ -39,6 +47,10 @@ class Encerradortest extends TestCase
     self::assertTrue($leiloes[1]->estaFinalizado());
     // self::assertEquals('Fiat 147 0Km', $leiloes[0]->recuperarDescricao());
     // self::assertEquals('Variant 1972 0Km', $leiloes[1]->recuperarDescricao());
+  }
+
+  public function testeDeveContinuarOProcessamentoAoEncontrarErroAoEnviarEmail()
+  {
   }
 }
 
