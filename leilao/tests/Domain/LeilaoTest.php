@@ -48,7 +48,7 @@ class LeilaoTest extends TestCase
         $leilao->recebeLance(new Lance($usuario, 1100));
     }
 
-    public function dadosParaProporLances()
+    public static function dadosParaProporLances()
     {
         $usuario1 = new Usuario('Usuário 1');
         $usuario2 = new Usuario('Usuário 2');

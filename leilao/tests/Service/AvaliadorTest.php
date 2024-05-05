@@ -71,7 +71,7 @@ class AvaliadorTest extends TestCase
         static::assertCount(2, $this->avaliador->getTresMaioresLances());
     }
 
-    public function leilaoComLancesEmOrdemCrescente()
+    public static function leilaoComLancesEmOrdemCrescente()
     {
         $leilao = new Leilao('Fiat 147 0KM');
         $joao = new Usuario('João');
@@ -87,7 +87,7 @@ class AvaliadorTest extends TestCase
         ];
     }
 
-    public function leilaoComLancesEmOrdemDecrescente()
+    public static function leilaoComLancesEmOrdemDecrescente()
     {
         $leilao = new Leilao('Fiat 147 0KM');
         $joao = new Usuario('João');
@@ -103,7 +103,7 @@ class AvaliadorTest extends TestCase
         ];
     }
 
-    public function leilaoComLancesEmOrdemAleatoria()
+    public static function leilaoComLancesEmOrdemAleatoria()
     {
         $leilao = new Leilao('Fiat 147 0KM');
         $joao = new Usuario('João');
